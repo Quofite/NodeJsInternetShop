@@ -1,0 +1,15 @@
+{
+  "name": "node-js-internet-shop",
+  "version": "0.0.0",
+  "description": "NodeJsInternetShop",
+  "main": "server.js",
+  "author": {
+    "name": "Gleb Nikitin"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "hbs": "^4.1.2"
+  }
+}

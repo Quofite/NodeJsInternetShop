@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AutoShop</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <meta charset="utf-8">
+        
+        <style>
+            /* Style The Dropdown Button */
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {background-color: #f1f1f1}
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {
+                background-color: #3e8e41;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">AutoShop - покупка автомобилей</a>
+        </nav>
+        
+        <div style="width:25%; height:80%; position:absolute; right:0;">
+            <h1 id="price">Цена: 0₽</h1>
+            <form method="post"><button id="orderButton" type="submit" class="btn btn-success">Заказать</button></form>
+        </div>
+        
+        <h1>Страница покупки</h1>
+        
+        <div class="mt-5" style="margin-left: 3%">
+            <div class="dropdown">
+                <button class="dropbtn">Автомобиль</button>
+                <div class="dropdown-content">
+                    <a style="user-select:none;" id="vaz2101">ВАЗ 2101</a>
+                    <a style="user-select:none;" id="ferrari488">Ferrari 488</a>
+                    <a style="user-select:none;" id="dw12">Dallara DW-12</a>
+                </div>
+            </div>
+        </div><br>
+        
+        <form name="buyerData" style="width:20%; margin-left:3%">
+            <input name="name" type="text" placeholder="Введите имя" class="form-control"><br>
+            <input name="address" type="text" placeholder="Введите адрес" class="form-control">
+        </form>
+        
+        <script>
+            var price = document.getElementById("price");
+            var carId = 0;
+            
+            document.getElementById("vaz2101").addEventListener("click", (e)=>{
+                price.innerText = "Цена: 60000₽";
+                carId = 1;
+            });
+            document.getElementById("ferrari488").addEventListener("click", (e)=>{
+                price.innerText = "Цена: 15500000₽";
+                carId = 2;
+            });
+            document.getElementById("dw12").addEventListener("click", (e)=>{
+                price.innerText = "Цена: 73275000₽";
+                carId = 3;
+            });
+            
+            document.getElementById("orderButton").addEventListener("click", (e)=>{
+                e.preventDefault();
+                
+                let form = document.forms["buyerData"];
+                let name = form.elements["name"].value;
+                let address = form.elements["address"].value;
+                let car = carId;
+                
+                if(car === 0)
+                    document.write("Не выбран автомобиль");
+                
+                let buyer = JSON.stringify({
+                    carid: car,
+                    buyername: name,
+                    buyeraddress: address
+                });
+                
+                let request = new XMLHttpRequest();
+                request.open("POST", "/buyer", true);
+                request.setRequestHeader("Content-Type", "application/json");
+                request.send(buyer);
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

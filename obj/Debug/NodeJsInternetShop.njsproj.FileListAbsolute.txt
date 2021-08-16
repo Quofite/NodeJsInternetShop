@@ -1,0 +1,3 @@
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\obj\Debug\NodeJsInternetShop.njsproj.AssemblyReference.cache
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\obj\Debug\NodeJsInternetShop.njsproj.CoreCompileInputs.cache
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\bin\Microsoft.NodejsTools.WebRole.dll

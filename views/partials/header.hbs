@@ -1,0 +1,32 @@
+<!-- THIS FILE CONTAINS EVERYTHING FRONTEND PART, THAT ISN'T CHANGING -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AutoShop</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">AutoShop - покупка автомобилей</a>
+        </nav>
+        
+        
+        <!-- REVIEWS -->
+        <!-- head -->
+        <div style="position:absolute; right:0; width:25%;">
+            <h2 align="center">Отзывы</h2>
+            <hr>
+        </div>
+        
+        <!-- rewiews themselves -->
+        <div style="overflow-y:scroll; width:25%; height:80%; position:absolute; right:0; margin-top:2.25%;"> </div>
+        
+        <!-- write own review button -->
+        <form method="get" action="/newreview">
+                <button style="width:25%; height: 9.8%; margin-top:42.2%; position:absolute; right:0;" type="submit">
+                    <h3 align="center" style="user-select:none;">НАПИШИТЕ СВОЙ ОТЗЫВ</h3>
+                </button>
+        </form>
