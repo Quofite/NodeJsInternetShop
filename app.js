@@ -1,13 +1,18 @@
 const express = require("express");
 const app = express();
-app.use(express.static(__dirname + "/views"));
-app.set("view engine", "hbs");
-
-const hbs = require("hbs");
-hbs.registerPartials(__dirname + "/views/partials");
 
 const jsonParser = express.json();
 
+const mysql = require("mysql2");
+const dbdata = require("./dbdata");
+
+//---
+
+app.use(express.static(__dirname + "/views"));
+
+app.set("view engine", "hbs");
+const hbs = require("hbs");
+hbs.registerPartials(__dirname + "/views/partials");
 
 //-------------- custom functions ----------------
 
@@ -37,10 +42,37 @@ app.get("/buy", function (request, response) {
     response.sendFile(__dirname + "/views/buy.html");
 });
 
-//-------------- post-requests -------------------
-app.post("/buyer", jsonParser, function (request, response) {
-    console.log(request.body);
+app.get("/success", function (request, response) {
+    response.sendFile(__dirname + "/views/success.html");
+});
 
+//-------------- post-requests -------------------
+app.post("/purchasing", jsonParser, function (request, response) {
+    if (!request.body)
+        return response.sendStatus(400);
+
+    const connection = mysql.createConnection({
+        host: dbdata.host,
+        user: dbdata.user,
+        password: dbdata.pass,
+        database: dbdata.db
+    });
+
+    const carid = request.body.carid;
+    const buyername = request.body.buyername;
+    const buyeraddress = request.body.buyeraddress;
+    const buyerphone = request.body.buyerphone;
+
+    const sql = `INSERT INTO orders(name, address, phone, carID) VALUES (?, ?, ?, ?)`;
+    const filter = [buyername, buyeraddress, buyerphone, carid];
+
+    connection.query(sql, filter, function (err, results) {
+        if (err) throw err;
+
+        console.log(results);
+    });
+
+    connection.end();
 });
 
 

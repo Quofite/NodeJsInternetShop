@@ -1,0 +1,10 @@
+ver. 0.2:
+- made system, that send purchase info to database, than it would be sended to desktop panel
+- added field for buyer phone numder in buying page
+- added screen, that thankig for purchase
+
+----------------------------------------------------------------------
+
+ver. 0.1:
+- added dbdata.js file (prepearing for making the reviews)
+- made essentals of the purschase system (WITHOUT desktop admin panel)

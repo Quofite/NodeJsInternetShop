@@ -62,7 +62,7 @@
         
         <div style="width:25%; height:80%; position:absolute; right:0;">
             <h1 id="price">Цена: 0₽</h1>
-            <form method="post"><button id="orderButton" type="submit" class="btn btn-success">Заказать</button></form>
+            <form method="get" action="/success"><button id="orderButton" type="submit" class="btn btn-success">Заказать</button></form>
         </div>
         
         <h1>Страница покупки</h1>
@@ -78,9 +78,10 @@
             </div>
         </div><br>
         
-        <form name="buyerData" style="width:20%; margin-left:3%">
+        <form name="buyerData" style="width:25%; margin-left:3%">
             <input name="name" type="text" placeholder="Введите имя" class="form-control"><br>
-            <input name="address" type="text" placeholder="Введите адрес" class="form-control">
+            <input name="address" type="text" placeholder="Введите адрес" class="form-control"><br>
+            <input name="phone" type="number" placeholder="Введите номер телефона БЕЗ ЗНАКОВ, только цифры" class="form-control">
         </form>
         
         <script>
@@ -101,11 +102,10 @@
             });
             
             document.getElementById("orderButton").addEventListener("click", (e)=>{
-                e.preventDefault();
-                
                 let form = document.forms["buyerData"];
                 let name = form.elements["name"].value;
                 let address = form.elements["address"].value;
+                let phone = form.elements["phone"].value;
                 let car = carId;
                 
                 if(car === 0)
@@ -114,12 +114,16 @@
                 let buyer = JSON.stringify({
                     carid: car,
                     buyername: name,
-                    buyeraddress: address
+                    buyeraddress: address,
+                    buyerphone: phone
                 });
                 
                 let request = new XMLHttpRequest();
-                request.open("POST", "/buyer", true);
+                request.open("POST", "/purchasing", true);
                 request.setRequestHeader("Content-Type", "application/json");
+                request.addEventListener("load", ()=>{
+                    console.log("done");
+                });
                 request.send(buyer);
             });
         </script>
