@@ -1,3 +1,6 @@
+ver. 0.21:
+-solved some problems with gitignore
+
 ver. 0.2:
 - made system, that send purchase info to database, than it would be sended to desktop panel
 - added field for buyer phone numder in buying page
