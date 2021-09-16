@@ -1,23 +1,24 @@
-const express = require("express");
-const app = express();
+//--------------------- getting backend packages ---
+const express = require("express"); // + express
+const app = express();              // creating app(server) object
 
-const jsonParser = express.json();
+const jsonParser = express.json();  // + json parser
 
-const mysql = require("mysql2");
-const dbdata = require("./dbdata");
+const mysql = require("mysql2");    // + mysql
+const dbdata = require("./dbdata"); // + db data
 
-//---
+//--------------------- getting frontend packages --
 
-app.use(express.static(__dirname + "/views"));
+app.use(express.static(__dirname + "/views"));          // setting static files directory
 
-app.set("view engine", "hbs");
-const hbs = require("hbs");
-hbs.registerPartials(__dirname + "/views/partials");
+const hbs = require("hbs");                             // getting view engine
+app.set("view engine", "hbs");                          // setting view engine
+hbs.registerPartials(__dirname + "/views/partials");    // registring path for partials
 
-//-------------- custom functions ----------------
+//-------------- custom functions --------------------------
+// still nothing here but maybe would
 
-
-//-------------- get-requests --------------------
+//-------------- get-requests ------------------------------
 app.get("/", function (request, response) {
     response.sendFile(__dirname + "/views/index.html");
 });
@@ -48,9 +49,11 @@ app.get("/success", function (request, response) {
 
 //-------------- post-requests -------------------
 app.post("/purchasing", jsonParser, function (request, response) {
+    // if any errors in request - set 400 http status
     if (!request.body)
         return response.sendStatus(400);
 
+    // getting connection
     const connection = mysql.createConnection({
         host: dbdata.host,
         user: dbdata.user,
@@ -58,23 +61,26 @@ app.post("/purchasing", jsonParser, function (request, response) {
         database: dbdata.db
     });
 
+    // getting order data
     const carid = request.body.carid;
     const buyername = request.body.buyername;
     const buyeraddress = request.body.buyeraddress;
     const buyerphone = request.body.buyerphone;
 
+    // creating sql string and filter with data to set
     const sql = `INSERT INTO orders(name, address, phone, carID) VALUES (?, ?, ?, ?)`;
     const filter = [buyername, buyeraddress, buyerphone, carid];
 
+    // sending order data to database
     connection.query(sql, filter, function (err, results) {
         if (err) throw err;
 
         console.log(results);
     });
 
+    //ending connection
     connection.end();
 });
-
 
 //-------------- listening -----------------------
 app.listen(3000, () => { console.log("Server started listening at 3000"); });
