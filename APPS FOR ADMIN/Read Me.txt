@@ -1,0 +1,4 @@
+"Desktop Admin Panel" will be app with graphic interface and it will have ability to
+	administrating reviews, check orders and answering on questions
+
+"Orders Panel" is console application made as intermediate solution

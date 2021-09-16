@@ -1,3 +1,13 @@
+ver. 0.3:
+- made orders panel - little console client to check orders as intermediate solution:
+	- it can only display info from database
+	- in next versions it will automaticly update every 5 minutes
+	- this app is made ONLY as intermediate solution - in future I'll make graphic client with abilities to control reviews, answer the questions that were made in site and to monitor orders ofc
+	- this app lays in /APPS FOR ADMIN/Orders panel
+	- DO NOT FORGET TO RENAME "EXAMPLE-DBUtils.cs" as it told in commentaries in that file and add yours db data
+
+----------------------------------------------------------------------
+
 ver. 0.21:
 -solved some problems with gitignore
 

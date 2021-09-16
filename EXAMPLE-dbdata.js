@@ -1,5 +1,5 @@
 // well, this file contains nothing but db data
-// !!!! YOU MUST RENAME THIS FILE TO smth.js AND ENTER YOURS DATABASE DATA
+// !!!! YOU MUST RENAME THIS FILE TO dbdata.js AND ENTER YOURS DATABASE DATA
 
 module.exports.host = "";     // host
 module.exports.user = "";     // username
