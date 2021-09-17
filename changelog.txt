@@ -1,3 +1,14 @@
+ver 0.4:
+- added questions section in header
+- changed versions numbering
+
+----------------------------------------------------------------------
+
+ver. 0.3.1:
+- now orders panel autoupdating orders every 5 minutes
+- did a little refactoring
+- added more comments in server file and in op main file
+
 ver. 0.3:
 - made orders panel - little console client to check orders as intermediate solution:
 	- it can only display info from database
@@ -8,7 +19,7 @@ ver. 0.3:
 
 ----------------------------------------------------------------------
 
-ver. 0.21:
+ver. 0.2.1:
 -solved some problems with gitignore
 
 ver. 0.2:

@@ -47,6 +47,10 @@ app.get("/success", function (request, response) {
     response.sendFile(__dirname + "/views/success.html");
 });
 
+app.get("/questions", function (request, response) {
+    response.sendFile(__dirname + "/views/questions.html");
+});
+
 //-------------- post-requests -------------------
 app.post("/purchasing", jsonParser, function (request, response) {
     // if any errors in request - set 400 http status
@@ -79,6 +83,35 @@ app.post("/purchasing", jsonParser, function (request, response) {
     });
 
     //ending connection
+    connection.end();
+});
+
+app.post("/question", jsonParser, function (request, response) {
+    // basicly here everything the same to previous function, so here nothing to comment
+
+    if (!request.body)
+        response.sendStatus(400);
+
+    const connection = mysql.createConnection({
+        host: dbdata.host,
+        user: dbdata.user,
+        password: dbdata.pass,
+        database: dbdata.db
+    });
+
+    const name = request.body.name;
+    const email = request.body.email;
+    const ask = request.body.ask;
+
+    const sql = `INSERT INTO asks(name, email, ask) VALUES(?, ?, ?)`;
+    const filter = [name, email, ask];
+
+    connection.query(sql, filter, function (err, results) {
+        if (err) throw err;
+
+        console.log(results);
+    });
+
     connection.end();
 });
 
