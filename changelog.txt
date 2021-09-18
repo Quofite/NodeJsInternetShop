@@ -1,3 +1,7 @@
+ver. 0.5.1:
+- made shortcuts for admin's apps in /APPS FOR ADMIN/
+- a little bit changed description in read me about the admin's apps
+
 ver. 0.5:
 - made admin panel with grapfics interface:
 	- it can display orders
