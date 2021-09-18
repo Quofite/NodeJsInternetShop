@@ -1,0 +1,28 @@
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Admin Panel.exe
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Admin Panel.deps.json
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Admin Panel.runtimeconfig.json
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Admin Panel.runtimeconfig.dev.json
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Admin Panel.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\ref\Admin Panel.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Admin Panel.pdb
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\MySql.Data.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Google.Protobuf.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Zstandard.Net.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\K4os.Compression.LZ4.Streams.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\Ubiety.Dns.Core.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\K4os.Compression.LZ4.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\K4os.Hash.xxHash.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\bin\Debug\net5.0-windows\MySql.Data.xml
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.csproj.AssemblyReference.cache
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin_Panel.Main.resources
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.csproj.GenerateResource.cache
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.AssemblyInfoInputs.cache
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.AssemblyInfo.cs
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.csproj.CoreCompileInputs.cache
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.csproj.CopyComplete
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\ref\Admin Panel.dll
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.pdb
+D:\Coding\NodeJsInternetShop\NodeJsInternetShop\APPS FOR ADMIN\Desktop Admin Panel\Admin Panel\Admin Panel\obj\Debug\net5.0-windows\Admin Panel.genruntimeconfig.cache

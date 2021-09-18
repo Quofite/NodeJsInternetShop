@@ -1,4 +1,14 @@
-ver 0.4:
+ver. 0.5:
+- made admin panel with grapfics interface:
+	- it can display orders
+	- it can display questions
+	- in future it will display reviews and moderate them
+	- in next patch I will add comentaries in main file, but actually code is preaty similar to console app
+	- to use it make the same things as in console app - rename EXAMPLE-DBUtils and add your db data
+
+----------------------------------------------------------------------
+
+ver. 0.4:
 - added questions section in header
 - changed versions numbering
 

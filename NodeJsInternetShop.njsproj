@@ -41,6 +41,7 @@
     <Content Include="views\dallaradw12.hbs" />
     <Content Include="views\partials\header.hbs" />
     <Content Include="views\ferrari488.hbs" />
+    <Content Include="views\questions.html" />
     <Content Include="views\review.html" />
     <Content Include="views\success.html" />
     <Content Include="views\vaz2101.hbs" />
