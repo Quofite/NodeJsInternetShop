@@ -115,5 +115,33 @@ app.post("/question", jsonParser, function (request, response) {
     connection.end();
 });
 
+app.post("/reviewSender", jsonParser, function (request, response) {
+    if (!request.body)
+        response.sendStatus(400);
+
+    const connection = mysql.createConnection({
+        host: dbdata.host,
+        user: dbdata.user,
+        password: dbdata.pass,
+        database: dbdata.db
+    });
+
+    const name = request.body.name;
+    const review = request.body.text;
+    const rate = request.body.rate;
+    const car = request.body.car;
+
+    const sql = `INSERT INTO reviews(name, review, rate, carId) VALUES(?, ?, ?, ?)`;
+    const filter = [name, review, rate, car];
+
+    connection.query(sql, filter, function (err, results) {
+        if (err) throw err;
+
+        console.log(results);
+    });
+
+    connection.end();
+});
+
 //-------------- listening -----------------------
 app.listen(3000, () => { console.log("Server started listening at 3000"); });

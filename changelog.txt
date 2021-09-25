@@ -1,3 +1,12 @@
+ver. 0.6:
+- made possibility to SEND reviews:
+	- in page with information about the car there are a button in left-botton corner that sends to review-writing page
+	- code is uncommented, but would be in next patchs
+- corrected typo in description of dw-12
+- added todo list, but actually it lays here only for me, you can use it as "list of features that gonna be added"
+
+----------------------------------------------------------------------
+
 ver. 0.5.1:
 - made shortcuts for admin's apps in /APPS FOR ADMIN/
 - a little bit changed description in read me about the admin's apps

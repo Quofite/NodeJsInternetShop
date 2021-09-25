@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AutoShop</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <meta charset="utf-8">
+        
+        <style>
+            /* Style The Dropdown Button */
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {background-color: #f1f1f1}
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {
+                background-color: #3e8e41;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">AutoShop - покупка автомобилей</a>
+            
+            <a href="/questions" class="navbar-brand" style="position:absolute; right:0">Есть вопросы? Нажми сюда</a>
+        </nav>
+        
+        <div class="mt-5 container">
+            
+            <div class="mt-5" style="margin-left: 3%">
+                <div class="dropdown">
+                    <button class="dropbtn">Автомобиль</button>
+                    <div class="dropdown-content">
+                        <a style="user-select:none;" id="vaz2101">ВАЗ 2101</a>
+                        <a style="user-select:none;" id="ferrari488">Ferrari 488</a>
+                        <a style="user-select:none;" id="dw12">Dallara DW-12</a>
+                    </div>
+                </div>
+            </div>
+            <div id="choisedCar" style="margin-left: 3%">Выбранный автомобиль:</div><br>
+            
+            <form method="get" action="/" name="reviewData" style="margin-left: 3%">
+                <input type="text" placeholder="Ваше имя" class="form-control" name="name"><br>
+                <input type="number" placeholder="Ваша оценка от 1 до 10" class="form-control" min="1" max="10" name="rate"><br>
+                <textarea placeholder="Ваш отзыв" class="form-control" cols="150" rows="7" name="review"></textarea><br>
+                <input type="submit" placeholder="Отправить" class="btn btn-primary" id="reviewSender">
+            </form>
+        </div>
+        
+        <script>
+            var choisedCar = document.getElementById("choisedCar");
+            var carID = 0;
+            
+            document.getElementById("vaz2101").addEventListener("click", (e)=>{
+                choisedCar.innerText = "Выбранный автомобиль: ВАЗ 2101";
+                carID = 1;
+            });
+            document.getElementById("ferrari488").addEventListener("click", (e)=>{
+                choisedCar.innerText = "Выбранный автомобиль: Ferraari 488";
+                carId = 2;
+            });
+            document.getElementById("dw12").addEventListener("click", (e)=>{
+                choisedCar.innerText = "Выбранный автомобиль: Dallara DW-12";
+                carId = 3;
+            });
+            
+            document.getElementById("reviewSender").addEventListener("click", (e)=>{
+                let form = document.forms["reviewData"];
+                let name = form.elements["name"].value;
+                let rate = form.elements["rate"].value;
+                let reviewText = form.elements["review"].value;
+                let car = carID;
+                
+                if(car === 0)
+                    document.write("Не выбран автомобиль");
+                
+                let reviewToSend = JSON.stringify({
+                    name: name,
+                    rate: rate,
+                    text: reviewText,
+                    car: car
+                });
+                
+                let request = new XMLHttpRequest();
+                request.open("POST", "/reviewSender", true);
+                request.setRequestHeader("Content-Type", "application/json");
+                request.send(reviewToSend);
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
