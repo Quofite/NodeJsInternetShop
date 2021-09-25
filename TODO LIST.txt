@@ -5,6 +5,7 @@ DEFENETLY IN NEAR TIME
 	2) add plenty of comments in html and hbs files 'cause it's imposible to navigate in them
 	3) make system that shows reviews separately for each car in site
 	4) make system that shows reviews separately for each car in admin panel
+	5) make normal documentation or readme
 
 MAYBE LATER
 	1) orders panel to android (like app for delivers or smth idk)
