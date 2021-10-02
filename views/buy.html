@@ -56,10 +56,12 @@
         </style>
     </head>
     <body>
+        <!-- header of page -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">AutoShop - покупка автомобилей</a>
         </nav>
         
+        <!-- block with price and ordering button -->
         <div style="width:25%; height:80%; position:absolute; right:0;">
             <h1 id="price">Цена: 0₽</h1>
             <form method="get" action="/success"><button id="orderButton" type="submit" class="btn btn-success">Заказать</button></form>
@@ -67,6 +69,7 @@
         
         <h1>Страница покупки</h1>
         
+        <!-- dropdown menu with the cars -->
         <div class="mt-5" style="margin-left: 3%">
             <div class="dropdown">
                 <button class="dropbtn">Автомобиль</button>
@@ -78,6 +81,7 @@
             </div>
         </div><br>
         
+        <!-- form with buyer data -->
         <form name="buyerData" style="width:25%; margin-left:3%">
             <input name="name" type="text" placeholder="Введите имя" class="form-control"><br>
             <input name="address" type="text" placeholder="Введите адрес" class="form-control"><br>
@@ -85,9 +89,10 @@
         </form>
         
         <script>
-            var price = document.getElementById("price");
-            var carId = 0;
+            var price = document.getElementById("price");   // element with price
+            var carId = 0;  // field with choised car
             
+            // handlers that checks what car did buyer chose
             document.getElementById("vaz2101").addEventListener("click", (e)=>{
                 price.innerText = "Цена: 60000₽";
                 carId = 1;
@@ -101,16 +106,19 @@
                 carId = 3;
             });
             
+            // handler of ordering button
             document.getElementById("orderButton").addEventListener("click", (e)=>{
-                let form = document.forms["buyerData"];
-                let name = form.elements["name"].value;
-                let address = form.elements["address"].value;
-                let phone = form.elements["phone"].value;
-                let car = carId;
+                let form = document.forms["buyerData"];         // getting form with buyer data
+                let name = form.elements["name"].value;         // getting buyer's name
+                let address = form.elements["address"].value;   // getting buyer's address
+                let phone = form.elements["phone"].value;       // getting buyer's phone
+                let car = carId;                                // getting choised car
                 
+                // if buyer didn't choose car writing him about that 
                 if(car === 0)
                     document.write("Не выбран автомобиль");
                 
+                // creating json file
                 let buyer = JSON.stringify({
                     carid: car,
                     buyername: name,
@@ -118,13 +126,10 @@
                     buyerphone: phone
                 });
                 
-                let request = new XMLHttpRequest();
-                request.open("POST", "/purchasing", true);
-                request.setRequestHeader("Content-Type", "application/json");
-                request.addEventListener("load", ()=>{
-                    console.log("done");
-                });
-                request.send(buyer);
+                let request = new XMLHttpRequest();     // making connection with server
+                request.open("POST", "/purchasing", true);  // making it POST and setting the address
+                request.setRequestHeader("Content-Type", "application/json");   // setting headers
+                request.send(buyer);    // sending json to server
             });
         </script>
     </body>

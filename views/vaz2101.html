@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AutoShop</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <!-- header of page -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">AutoShop - покупка автомобилей</a>
+        </nav>
+        
+        
+        <!-- REVIEWS -->
+        <!-- header of reviews block -->
+        <div style="position:absolute; right:0; width:25%;">
+            <h2 align="center">Отзывы</h2>
+            <hr>
+        </div>
+        
+        <!-- reviews themselves -->
+        <div style="overflow-y:scroll; width:25%; height:80%; position:absolute; right:0; margin-top:2.25%;" id="reviews"> </div>
+        
+        <!-- write-own-review button -->
+        <form method="get" action="/newreview">
+                <button style="width:25%; height: 9.8%; margin-top:42.2%; position:absolute; right:0;" type="submit">
+                    <h3 align="center" style="user-select:none;">НАПИШИТЕ СВОЙ ОТЗЫВ</h3>
+                </button>
+        </form>
+        
+<!-- PART HIGHER WAS IN OTHER FILE BUT IT BECAME TOO HARD FOR ME TO MAKE EVERYTHING NICE SO IT'LL BE WRONG BUT EASY -->
+
+<div style="width:75%; height:94%; position:absolute; left:0; overflow-y:scroll;">
+    
+<img width="840" height="480" src="images/vaz2101.jpg">
+
+<h2 style="margin-left:61%; margin-top:-34%">ВАЗ 2101 (1971)</h2>
+
+<p style="margin-left:61%;">
+    <b>ВАЗ-2101 «Жигули»</b> - советский заднеприводный легковой автомобиль малого класса с кузовом типа седан.<br> Первая модель, выпущенная на Волжском автомобильном заводе.
+</p>
+
+<p style="margin-left:61%;">    
+    16 августа 1966 года в Москве было подписано генеральное соглашение между итальянской компанией Fiat и советским Внешторгом о научно-техническом сотрудничестве в области разработки легковых автомобилей.<br> В его рамках был утвержден проект строительства автозавода на территории СССР. Этим соглашением определялись и сами модели:<br> два автомобиля в комплектации «норма» с кузовами седан (ВАЗ-2101) и универсал (ВАЗ-2102),<br> и автомобиль «люкс» (ВАЗ-2103). В качестве прототипа для<br> «нормы» сразу был определён Fiat 124,<br> получивший в 1967 году титул «Автомобиль года».
+</p>
+
+<br><br><br>
+<h2>ЦЕНА: 65.000 рублей</h2><form method="get" action="/buy"><button type="submit" class="btn btn-success">Купить</button></form> <br>
+    
+<h2>ХАРАКТЕРИСТИКИ:</h2>
+<b>Двигатель</b>
+<ul>
+    <li>1.2 Литра</li>
+    <li>Рядный, 4 цилиндра</li>
+    <li>64 л.с. при 5600 об/мин</li>
+    <li>87.3 Нм крутящий момент при 3400 об/мин</li>
+    <li>53.3 л.с./литр</li>
+    <li>Рекомендуемое топливо - АИ-93</li>
+</ul>
+
+<b>Ходовая часть, трансмиссия и кузов</b>
+<ul>
+    <li>4-ёх ступенчатая коробка передач, H-образная</li>
+    <li>Масса без технических жидкостей и пассажиров - 955кг</li>
+    <li>Объём бензобака - 39л</li>
+    <li>Компоновка - переднемоторная</li>
+    <li>Задний привод</li>
+    <li>Длина - 4073мм</li>
+    <li>Ширина - 1611мм</li>
+    <li>Высота - 1382мм</li>
+    <li>Колёсная база - 2424мм</li>
+    <li>Колея: перед - 1349мм, зад - 1305мм</li>
+</ul>
+
+<b>Динамические показатели</b>
+<ul>
+    <li>0-100 - 20 сек</li>
+    <li>Максимальная скорость - 142км/ч</li>
+</ul>
+
+<h3>Гоночные факты:</h3>
+<p>В 2004 году, такой автомобиль, подготовленный командой СитиМоторспорт занял 1 место в своем классе(до 1300 кубов) и 13-е в абсолюте в гонке легендарных автомобилей на Нюрбургринге</p><br>
+<p>
+    Осенью 1971 года автомобили ВАЗ-2101 приняли участие в международных соревнованиях: три советских экипажа стартовали в марафоне «Тур Европы-71». Маршрут этого ралли проложен по территории 14 стран Западной и Восточной Европы (включая и территорию СССР), а общая протяженность дистанции достигала 14 тысяч километров. По итогам тура команда ВАЗ-Автоэкспорт завоевала «Серебряный кубок» в командном зачете, а экипажи Гирдаускас-Мадревиц и Лукьянов-Карамышев к тому же удостоились и наград в личном зачете.
+</p>
+
+
+</div>
+
+<script>
+    let request = new XMLHttpRequest();
+    request.open("GET", "/getReviews", true);
+    request.addEventListener("load", ()=>{
+        let reviewsBox = document.getElementById("reviews");
+        let recieved = request.response;
+
+        reviewsBox.innerHTML += recieved;
+    });
+
+    request.send();
+
+</script>

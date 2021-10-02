@@ -38,18 +38,16 @@
     <Content Include="README.md" />
     <Content Include="views\buy.html" />
     <Content Include="views\index.html" />
-    <Content Include="views\dallaradw12.hbs" />
-    <Content Include="views\partials\header.hbs" />
-    <Content Include="views\ferrari488.hbs" />
+    <Content Include="views\dallaradw12.html" />
+    <Content Include="views\ferrari488.html" />
     <Content Include="views\questions.html" />
     <Content Include="views\review.html" />
     <Content Include="views\success.html" />
-    <Content Include="views\vaz2101.hbs" />
+    <Content Include="views\vaz2101.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="views\" />
     <Folder Include="views\images\" />
-    <Folder Include="views\partials\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

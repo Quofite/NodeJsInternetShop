@@ -7,37 +7,40 @@
         <meta charset="utf-8">
     </head>
     <body>
+        <!-- header of rhe page -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">AutoShop - покупка автомобилей</a>
             
             <a href="/questions" class="navbar-brand" style="position:absolute; right:0">Есть вопросы? Нажми сюда</a>
         </nav>
         
+        <!-- block with form that gets asker's data -->
         <div class="mt-5 container">
             <form method="get" action="/" name="data">
-                <input class="form-control" type="text" placeholder="Как к вам обращаться? (До 13 символов)" name="nameField"><br>
-                <input class="form-control" type="email" placeholder="Ваш e-mail для ответа (До 20 символов)" name="emailField"><br>
-                <textarea class="form-control" placeholder="Ваш вопрос (До 200 символов)" cols="150" rows="7" name="askField"></textarea><br>
-                <button type="submit" class="btn btn-primary" id="askButton">Отправить</button>
+                <input class="form-control" type="text" placeholder="Как к вам обращаться? (До 13 символов)" name="nameField"><br>  <!-- getting name -->
+                <input class="form-control" type="email" placeholder="Ваш e-mail для ответа (До 20 символов)" name="emailField"><br>    <!-- getting email -->
+                <textarea class="form-control" placeholder="Ваш вопрос (До 200 символов)" cols="150" rows="7" name="askField"></textarea><br>   <!-- field with ask -->
+                <button type="submit" class="btn btn-primary" id="askButton">Отправить</button> <!-- sending button -->
             </form>
             
             <script>
                 document.getElementById("askButton").addEventListener("click", (e)=>{
-                    let form = document.forms["data"];
-                    let name = form.elements["nameField"].value;
-                    let email = form.elements["emailField"].value;
-                    let ask = form.elements["askField"].value;
+                    let form = document.forms["data"];              // getting form with data
+                    let name = form.elements["nameField"].value;    // getting name
+                    let email = form.elements["emailField"].value;  // getting email
+                    let ask = form.elements["askField"].value;      // getting ask
                     
+                    // making json
                     let question = JSON.stringify({
                         name: name,
                         email: email,
                         ask: ask
                     });
                     
-                    let request = new XMLHttpRequest();
-                    request.open("POST", "/question", true);
-                    request.setRequestHeader("Content-Type", "application/json");
-                    request.send(question);
+                    let request = new XMLHttpRequest();     // making request
+                    request.open("POST", "/question", true);    // making it POST and setting address
+                    request.setRequestHeader("Content-Type", "application/json");   // setting headers
+                    request.send(question); // sending json
                 });
             </script>
         </div>

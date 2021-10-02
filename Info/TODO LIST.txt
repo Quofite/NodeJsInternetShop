@@ -1,0 +1,12 @@
+THIS LIST CONTAINS EVERYTHING THAT I WANT TO ADD OR CHANGE
+
+DEFENETLY IN NEAR TIME
+	1) make system that shows reviews separately for each car in site
+	2) make system that shows reviews separately for each car in admin panel
+	3) make normal documentation or readme
+
+MAYBE LATER
+	1) orders panel to android (like app for delivers or smth idk)
+	2) posibility to answer on asks in admin panel and send them
+	3) more cars (for what bruh)
+	4) turn console order panel to loger (for what, easier to delete it, admin panel is quite lite for memory and cpu)

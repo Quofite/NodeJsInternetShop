@@ -1,4 +1,2 @@
 "Desktop Admin Panel" is an app with graphic interface and it has ability to
 	administrating reviews, check orders and answering on questions
-
-"Orders Panel" is a console application made as intermediate solution

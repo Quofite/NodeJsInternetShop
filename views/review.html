@@ -56,14 +56,17 @@
         </style>
     </head>
     <body>
+        <!-- header of the site -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">AutoShop - покупка автомобилей</a>
             
             <a href="/questions" class="navbar-brand" style="position:absolute; right:0">Есть вопросы? Нажми сюда</a>
         </nav>
         
+        <!-- block with form -->
         <div class="mt-5 container">
             
+            <!-- dropdown menu -->
             <div class="mt-5" style="margin-left: 3%">
                 <div class="dropdown">
                     <button class="dropbtn">Автомобиль</button>
@@ -74,43 +77,48 @@
                     </div>
                 </div>
             </div>
+            <!-- block with choised car -->
             <div id="choisedCar" style="margin-left: 3%">Выбранный автомобиль:</div><br>
             
+            <!-- form with data -->
             <form method="get" action="/" name="reviewData" style="margin-left: 3%">
-                <input type="text" placeholder="Ваше имя" class="form-control" name="name"><br>
-                <input type="number" placeholder="Ваша оценка от 1 до 10" class="form-control" min="1" max="10" name="rate"><br>
-                <textarea placeholder="Ваш отзыв" class="form-control" cols="150" rows="7" name="review"></textarea><br>
-                <input type="submit" placeholder="Отправить" class="btn btn-primary" id="reviewSender">
+                <input type="text" placeholder="Ваше имя" class="form-control" name="name"><br>     <!-- name -->
+                <input type="number" placeholder="Ваша оценка от 1 до 10" class="form-control" min="1" max="10" name="rate"><br>    <!-- rate -->
+                <textarea placeholder="Ваш отзыв" class="form-control" cols="150" rows="7" name="review"></textarea><br>    <!-- review itself -->
+                <input type="submit" placeholder="Отправить" class="btn btn-primary" id="reviewSender"> <!-- sending button -->
             </form>
         </div>
         
         <script>
-            var choisedCar = document.getElementById("choisedCar");
-            var carID = 0;
+            var choisedCar = document.getElementById("choisedCar"); // html element with choised car
+            var carID = 0;  // id of choised car
             
+            // handlers that check which car is choised and writing about that in appropriate html element 
             document.getElementById("vaz2101").addEventListener("click", (e)=>{
                 choisedCar.innerText = "Выбранный автомобиль: ВАЗ 2101";
                 carID = 1;
             });
             document.getElementById("ferrari488").addEventListener("click", (e)=>{
-                choisedCar.innerText = "Выбранный автомобиль: Ferraari 488";
-                carId = 2;
+                choisedCar.innerText = "Выбранный автомобиль: Ferrari 488";
+                carID = 2;
             });
             document.getElementById("dw12").addEventListener("click", (e)=>{
                 choisedCar.innerText = "Выбранный автомобиль: Dallara DW-12";
-                carId = 3;
+                carID = 3;
             });
             
             document.getElementById("reviewSender").addEventListener("click", (e)=>{
-                let form = document.forms["reviewData"];
-                let name = form.elements["name"].value;
-                let rate = form.elements["rate"].value;
-                let reviewText = form.elements["review"].value;
-                let car = carID;
+                let form = document.forms["reviewData"];    // getting form
+                let name = form.elements["name"].value;     // gfetting name
+                let rate = form.elements["rate"].value;     // getting rate
+                let reviewText = form.elements["review"].value;// getting review
+                let car = carID;    // getting car
                 
+                // if user didn't choose car he will be informated about that
                 if(car === 0)
                     document.write("Не выбран автомобиль");
                 
+                // making json
                 let reviewToSend = JSON.stringify({
                     name: name,
                     rate: rate,
@@ -118,10 +126,10 @@
                     car: car
                 });
                 
-                let request = new XMLHttpRequest();
-                request.open("POST", "/reviewSender", true);
-                request.setRequestHeader("Content-Type", "application/json");
-                request.send(reviewToSend);
+                let request = new XMLHttpRequest();         // making request
+                request.open("POST", "/reviewSender", true);// making it POST and setting address
+                request.setRequestHeader("Content-Type", "application/json");   // setting headers
+                request.send(reviewToSend); // sending json
             });
         </script>
     </body>
