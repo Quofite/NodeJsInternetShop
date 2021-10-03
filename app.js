@@ -10,6 +10,7 @@ const dbdata = require("./dbdata"); // + db data
 //--------------------- getting frontend packages --
 
 app.use(express.static(__dirname + "/views"));          // setting static files directory
+app.set("view engine", "hbs");
 
 //-------------- custom functions --------------------------
 // still nothing here but maybe would
@@ -20,15 +21,90 @@ app.get("/", function (request, response) {
 });
 
 app.get("/ferrari488", function (request, response) {
-    response.sendFile(__dirname + "/views/ferrari488.html");
+    const connection = mysql.createConnection({
+        host: dbdata.host,
+        user: dbdata.user,
+        password: dbdata.pass,
+        database: dbdata.db
+    });
+
+    const sql = `SELECT * FROM reviews WHERE carId=2`;    // sql string
+    var result = "";  // variable that will contain all reviews
+
+    connection.query(sql, function(err, results){
+        if(err) throw err;  // if there are an error it will be thrown (maybe better just to show it in console but not to crash server bruh)
+
+        var inter = results;    // variable with results of sql query
+
+        // loop that will make reviews blocks to send them to the client
+        for(var i = 0; i < inter.length; i++){
+            result += `<br/><b>${inter[i].name}:</b> ${inter[i].review}<hr>`;   // bold reviewer name and review after it
+        }
+
+        response.render("ferrari488.hbs", {
+            reviews: result
+        });
+    });
+
+    connection.end();
 });
 
 app.get("/vaz2101", function (request, response) {
-    response.sendFile(__dirname + "/views/vaz2101.html");
+    const connection = mysql.createConnection({
+        host: dbdata.host,
+        user: dbdata.user,
+        password: dbdata.pass,
+        database: dbdata.db
+    });
+
+    const sql = `SELECT * FROM reviews WHERE carId=1`;    // sql string
+    var result = "";  // variable that will contain all reviews
+
+    connection.query(sql, function(err, results){
+        if(err) throw err;  // if there are an error it will be thrown (maybe better just to show it in console but not to crash server bruh)
+
+        var inter = results;    // variable with results of sql query
+
+        // loop that will make reviews blocks to send them to the client
+        for(var i = 0; i < inter.length; i++){
+            result += `<br/><b>${inter[i].name}:</b> ${inter[i].review}<hr>`;   // bold reviewer name and review after it
+        }
+
+        response.render("vaz2101.hbs", {
+            reviews: result
+        });
+    });
+
+    connection.end();
 });
 
 app.get("/dallaradw12", function (request, response) {
-    response.sendFile(__dirname + "/views/dallaradw12.html");
+    const connection = mysql.createConnection({
+        host: dbdata.host,
+        user: dbdata.user,
+        password: dbdata.pass,
+        database: dbdata.db
+    });
+
+    const sql = `SELECT * FROM reviews WHERE carId=3`;    // sql string
+    var result = "";  // variable that will contain all reviews
+
+    connection.query(sql, function(err, results){
+        if(err) throw err;  // if there are an error it will be thrown (maybe better just to show it in console but not to crash server bruh)
+
+        var inter = results;    // variable with results of sql query
+
+        // loop that will make reviews blocks to send them to the client
+        for(var i = 0; i < inter.length; i++){
+            result += `<br/><b>${inter[i].name}:</b> ${inter[i].review}<hr>`;   // bold reviewer name and review after it
+        }
+
+        response.render("dallaradw12.hbs", {
+            reviews: result
+        });
+    });
+
+    connection.end();
 });
 
 app.get("/newreview", function (request, response) {
@@ -45,33 +121,6 @@ app.get("/success", function (request, response) {
 
 app.get("/questions", function (request, response) {
     response.sendFile(__dirname + "/views/questions.html");
-});
-
-app.get("/getReviews", function(request, response){
-    // getting mysql connection
-    const connection = mysql.createConnection({
-        host: dbdata.host,
-        user: dbdata.user,
-        password: dbdata.pass,
-        database: dbdata.db
-    });
-
-    const sql = `SELECT * FROM reviews`;    // sql string
-    var result = "";  // variable that will contain all reviews
-
-    connection.query(sql, function(err, results){
-        if(err) throw err;  // if there are an error it will be thrown (maybe better just to show it in console but not to crash server bruh)
-
-        var inter = results;    // variable with results of sql query
-
-        // loop that will make reviews blocks to send them to the client
-        for(var i = 0; i < inter.length; i++){
-            result += `<br/><b>${inter[i].name}:</b> ${inter[i].review}<hr>`;   // blod reviewer name and review after it
-        }
-
-        response.send(result);  // sending response with reviews to client
-    })
-
 });
 
 //-------------- post-requests -------------------
